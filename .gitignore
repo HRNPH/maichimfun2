@@ -1,5 +1,8 @@
-# assets — data, audio, models
-data/
+# assets — audio, models; keep the (small) text dataset in git
+data/*
+!data/dataset/
+data/dataset/tiny_smoke.jsonl
+data/dataset/needle_thai_all.jsonl
 voicepacks/
 checkpoints/
 out/

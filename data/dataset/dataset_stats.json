@@ -1,0 +1,103 @@
+{
+  "total": 893,
+  "deduped_removed": 7,
+  "on_topic": 729,
+  "off_topic": 164,
+  "train": 804,
+  "val": 89,
+  "audio_matched": 893,
+  "per_shard": {
+    "thai_chitchat": 89,
+    "weather_alarms": 88,
+    "calendar_comms": 90,
+    "smart_home_security": 88,
+    "media_music": 89,
+    "misc_tools": 90,
+    "smart_home_lights": 89,
+    "ambiguous_offtopic": 90,
+    "smart_home_devices": 90,
+    "extraction_structured": 90
+  },
+  "top_tools": [
+    [
+      "play_music",
+      37
+    ],
+    [
+      "set_timer",
+      32
+    ],
+    [
+      "set_reminder",
+      25
+    ],
+    [
+      "set_alarm",
+      25
+    ],
+    [
+      "create_event",
+      24
+    ],
+    [
+      "get_weather",
+      24
+    ],
+    [
+      "lock_door",
+      23
+    ],
+    [
+      "send_message",
+      18
+    ],
+    [
+      "add_to_list",
+      17
+    ],
+    [
+      "set_ac_temperature",
+      17
+    ],
+    [
+      "set_light",
+      16
+    ],
+    [
+      "call_contact",
+      16
+    ],
+    [
+      "activate_scene",
+      14
+    ],
+    [
+      "extract_contact",
+      14
+    ],
+    [
+      "dim_light",
+      14
+    ],
+    [
+      "set_volume",
+      13
+    ],
+    [
+      "smart_plug",
+      13
+    ],
+    [
+      "arm_alarm",
+      12
+    ],
+    [
+      "set_fan_speed",
+      12
+    ],
+    [
+      "extract_citation",
+      12
+    ]
+  ]
+}
