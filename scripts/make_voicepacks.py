@@ -11,12 +11,14 @@ while shifting timbre/gender/pitch toward the upstream speaker.
 Usage: .venv/bin/python scripts/make_voicepacks.py [--alpha 0.75]
 """
 import argparse
+import os
 import urllib.request
 from pathlib import Path
 
 import numpy as np
 
-CACHE = Path.home() / ".cache" / "fastthaig2p"
+CACHE = Path(os.environ.get("FASTTHAIG2P_HOME",
+                            Path.home() / ".cache" / "fastthaig2p"))
 VOICE_DIR = Path(__file__).resolve().parent.parent / "voicepacks"
 HF_BASE = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/voices"
 
@@ -71,10 +73,11 @@ def main() -> None:
     VOICE_DIR.mkdir(parents=True, exist_ok=True)
     thai_path = CACHE / "thai_som.npy"
     if not thai_path.exists():
-        raise SystemExit(
-            f"{thai_path} not found — run a TTS() once first so the "
-            "default model + voicepack download to the cache."
-        )
+        # first run anywhere: instantiating TTS() downloads the default
+        # model + voicepack + config into the cache (~330 MB)
+        print(f"{thai_path} not found — downloading FastThaiG2P assets…")
+        from fastthaig2p import TTS
+        TTS()
     thai = load_voicepack(thai_path)
 
     for out_name, (upstream, alpha) in SPEAKERS.items():
