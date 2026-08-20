@@ -141,6 +141,11 @@ def main() -> None:
                 items.append((shard.stem, i, json.loads(line)))
     if args.limit:
         items = items[: args.limit]
+    if not items:
+        raise SystemExit(
+            "no raw shards in data/raw/ — nothing to synthesize; "
+            "manifest left untouched"
+        )
     print(f"{len(items)} examples to synthesize")
 
     for n, (shard, idx, ex) in enumerate(items, 1):

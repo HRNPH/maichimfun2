@@ -90,6 +90,12 @@ def main() -> None:
             ex["_shard"] = shard.stem
             examples.append(ex)
 
+    if not examples:
+        raise SystemExit(
+            "no examples found in data/raw/ (missing or empty?) — refusing to "
+            "overwrite the existing dataset in data/dataset/ with empty files"
+        )
+
     if errors:
         print(f"{len(errors)} validation problems — inspect and fix:")
         for e in errors[:30]:
