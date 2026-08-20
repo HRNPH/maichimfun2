@@ -1,0 +1,18 @@
+[project]
+name = "maichimfun2"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fastthaig2p[tts]",
+]
+
+[tool.uv.sources]
+fastthaig2p = { git = "https://github.com/awslabs/FastThaiG2P" }
+
+[dependency-groups]
+gpu = [
+    "cactus-needle[gpu]>=2.0.7 ; sys_platform == 'linux'",
+]
+metal = [
+    "cactus-needle[metal]>=2.0.7",
+]
